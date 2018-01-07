@@ -1,0 +1,10 @@
+---
+- hosts: testservers
+  tasks:
+        - name: copying files to remote server
+          copy: src=/etc/hosts dest=/tmp/test0/
+                 owner=root group=root mode=644
+
+        - name: copying files to remote server - 2
+          template: src=/etc/hosts dest=/tmp/test1/
+                 owner=root group=root mode=644

@@ -1,0 +1,5 @@
+---
+- hosts: testservers
+  tasks:
+        - name: create a directory on remote machine
+          file: path=/tmp/test0 state=directory

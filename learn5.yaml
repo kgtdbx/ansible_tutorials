@@ -1,0 +1,12 @@
+---
+- hosts: testservers
+  remote_user: root
+  tasks:
+        - name: enable selinux
+          command: setenforce 0
+        
+        - name: create first directory
+          shell: mkdir /tmp/test0
+
+        - name: create second directory
+          shell: mkdir /tmp/test1

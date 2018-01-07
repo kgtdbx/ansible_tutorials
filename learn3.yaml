@@ -1,0 +1,15 @@
+---
+- hosts: testservers
+  remote_user: test
+  tasks:
+        - name: ensure httpd is installed
+          yum: name=httpd state=installed
+          become_method: sudo
+        - name: ensure httpd service is running
+          service: name=httpd state=started
+          become_method: sudo
+          
+# Make sure you have passwordless ssh to test user from current machine where you are executing ansible script, else you need to use "-k" to ask-password
+# # e.g #ansible-playbook -i hosts learn3.yaml -k
+# OR
+# # e.g #ansible-playbook -i hosts learn3.yaml --ask-become-pass

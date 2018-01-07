@@ -1,0 +1,19 @@
+---
+- hosts: testservers
+  remote_user: root
+  tasks:
+        - name: yum module usage
+          yum: name=git state=installed
+        
+        - name: service module usage
+          service: name=httpd state=started
+
+        - name: command module usage
+          command: setenforce 0
+
+        - name: shell module usage
+          shell: /sbin/ifconfig || /bin/true
+
+        - name: copying files to remote server
+          copy: src=/etc/hosts dest=/tmp/test0/
+                 owner=root group=root mode=644
